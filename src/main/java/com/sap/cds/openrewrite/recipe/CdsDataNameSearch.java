@@ -13,7 +13,7 @@ import org.openrewrite.java.tree.Expression;
 import org.openrewrite.java.tree.J.MethodInvocation;
 import org.openrewrite.marker.SearchResult;
 
-class CdsDataNameSearch extends Recipe {
+public class CdsDataNameSearch extends Recipe {
 
 	private final SelectColumns table = new SelectColumns(this);
 
