@@ -19,28 +19,28 @@ class SelectWithStringSearchTest implements RewriteTest {
 
 	@Test
 	void testSelect() {
-		rewriteRun(spec -> spec.dataTable(SelectColumns.Row.class, (rows) -> {
+		rewriteRun(spec -> spec.dataTable(SelectColumns.Row.class, rows -> {
 			assertThat(rows).containsExactly(new SelectColumns.Row("MyElement"));
 		}), java("""
-					import com.sap.cds.ql.Select;
+				import com.sap.cds.ql.Select;
 
-					class Test {
+				class Test {
 
-						void test() {
-							Select.from("MyEntity").columns("MyElement");
-						}
-
+					void test() {
+						Select.from("MyEntity").columns("MyElement");
 					}
+
+				}
 				""", """
-					import com.sap.cds.ql.Select;
+				import com.sap.cds.ql.Select;
 
-					class Test {
+				class Test {
 
-						void test() {
-							Select.from("MyEntity").columns(/*~~>*/"MyElement");
-						}
-
+					void test() {
+						Select.from("MyEntity").columns(/*~~>*/"MyElement");
 					}
+
+				}
 				"""));
 
 	}
@@ -50,29 +50,27 @@ class SelectWithStringSearchTest implements RewriteTest {
 		rewriteRun(spec -> spec.dataTable(SelectColumns.Row.class, (rows) -> {
 			assertThat(rows).containsExactly(new SelectColumns.Row("MyElement"),
 					new SelectColumns.Row("MyOtherElement"));
-		}), java(
+		}), java("""
+				import com.sap.cds.ql.Select;
 
-				"""
-							import com.sap.cds.ql.Select;
+				class Test {
 
-							class Test {
+					void test() {
+						Select.from("MyEntity").columns("MyElement", "MyOtherElement");
+					}
 
-								void test() {
-									Select.from("MyEntity").columns("MyElement", "MyOtherElement");
-								}
+				}
+				""", """
+				import com.sap.cds.ql.Select;
 
-							}
-						""", """
-							import com.sap.cds.ql.Select;
+				class Test {
 
-							class Test {
+					void test() {
+						Select.from("MyEntity").columns(/*~~>*/"MyElement", /*~~>*/"MyOtherElement");
+					}
 
-								void test() {
-									Select.from("MyEntity").columns(/*~~>*/"MyElement", /*~~>*/"MyOtherElement");
-								}
-
-							}
-						"""));
+				}
+				"""));
 
 	}
 
@@ -82,25 +80,25 @@ class SelectWithStringSearchTest implements RewriteTest {
 			assertThat(rows).containsExactly(new SelectColumns.Row("MyElement"),
 					new SelectColumns.Row("MyOtherElement"));
 		}), java("""
-					import com.sap.cds.ql.Select;
+				import com.sap.cds.ql.Select;
 
-					class Test {
+				class Test {
 
-						void test() {
-							Select.from("MyEntity").columns(new String[] {"MyElement", "MyOtherElement"});
-						}
-
+					void test() {
+						Select.from("MyEntity").columns(new String[] {"MyElement", "MyOtherElement"});
 					}
+
+				}
 				""", """
-					import com.sap.cds.ql.Select;
+				import com.sap.cds.ql.Select;
 
-					class Test {
+				class Test {
 
-						void test() {
-							Select.from("MyEntity").columns(new String[] {/*~~>*/"MyElement", /*~~>*/"MyOtherElement"});
-						}
-
+					void test() {
+						Select.from("MyEntity").columns(new String[] {/*~~>*/"MyElement", /*~~>*/"MyOtherElement"});
 					}
+
+				}
 				"""));
 
 	}

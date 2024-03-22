@@ -11,6 +11,7 @@ Execute it on commmand line:
 ```bash
 mod run . --recipe com.sap.cds.openrewrite.recipe.SelectWithStringSearch
 mod run . --recipe com.sap.cds.openrewrite.recipe.CdsDataNameSearch
+mod run . --recipe com.sap.cds.openrewrite.recipe.CdsDataRewriteRecipes
 ```
 
 Before you publish your recipe module to an artifact repository, you may want to try it out locally.
