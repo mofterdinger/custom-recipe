@@ -20,5 +20,4 @@ public class SelectColumns extends DataTable<SelectColumns.Row> {
 
 	}
 
-
 }
