@@ -5,3 +5,12 @@ target/
 out/
 src/main/generated/
 bin/
+
+# Eclipse
+.settings/
+.project
+.classpath
+.factorypath
+
+# VS Code
+.vscode/
