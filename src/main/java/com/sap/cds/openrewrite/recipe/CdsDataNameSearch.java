@@ -41,7 +41,7 @@ public class CdsDataNameSearch extends Recipe {
 
 				if (select != null && typeMatcher.matches(select.getType())
 						&& (matcherGet.matches(method) || matcherSet.matches(method))) {
-					table.insertRow(ctx, new SelectColumns.Row(method.getArguments().get(0).printTrimmed()));
+					table.insertRow(ctx, new SelectColumns.Row(method.getArguments().get(0).printTrimmed(getCursor())));
 					return SearchResult.found(method);
 				}
 
