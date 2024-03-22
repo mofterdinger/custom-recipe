@@ -6,7 +6,7 @@ import com.sap.cds.CdsData;
 
 import org.openrewrite.java.template.RecipeDescriptor;
 
-public class CdsDataNameRewrite {
+public class CdsDataRewrite {
 
 	@RecipeDescriptor(name = "RewriteGetToGetPath", description = "Rewrites CdsData.get() with CdsData.getPath()")
 	public static class RewriteGetToGetPath {
