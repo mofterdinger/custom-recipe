@@ -9,18 +9,16 @@ import org.openrewrite.java.JavaParser;
 import org.openrewrite.test.RecipeSpec;
 import org.openrewrite.test.RewriteTest;
 
-class CdsDataNameSearchTest implements RewriteTest {
+class CdsDataNameRewriteTest implements RewriteTest {
 
 	@Override
 	public void defaults(RecipeSpec spec) {
-		spec.recipe(new CdsDataNameSearch()).parser(JavaParser.fromJavaVersion().classpath("cds4j-api"));
+		spec.recipe(new CdsDataNameRewriteRecipes()).parser(JavaParser.fromJavaVersion().classpath("cds4j-api"));
 	}
 
 	@Test
 	void testGet() {
-		rewriteRun(spec -> spec.dataTable(SelectColumns.Row.class, (rows) -> {
-//			assertThat(rows).containsExactly(new SelectColumns.Row("MyElement"));
-		}), java("""
+		rewriteRun(java("""
 					import com.sap.cds.CdsData;
 
 					class Test {
@@ -36,7 +34,7 @@ class CdsDataNameSearchTest implements RewriteTest {
 					class Test {
 
 						void test() {
-							/*~~>*/CdsData.create().get("MyElement");
+					        CdsData.create().getPath("MyElement");
 						}
 
 					}
@@ -45,9 +43,7 @@ class CdsDataNameSearchTest implements RewriteTest {
 
 	@Test
 	void testPut() {
-		rewriteRun(spec -> spec.dataTable(SelectColumns.Row.class, (rows) -> {
-//			assertThat(rows).containsExactly(new SelectColumns.Row("MyElement"));
-		}), java("""
+		rewriteRun(java("""
 					import com.sap.cds.CdsData;
 
 					class Test {
@@ -63,7 +59,7 @@ class CdsDataNameSearchTest implements RewriteTest {
 					class Test {
 
 						void test() {
-							/*~~>*/CdsData.create().put("MyElement", null);
+					        CdsData.create().putPath("MyElement", null);
 						}
 
 					}
