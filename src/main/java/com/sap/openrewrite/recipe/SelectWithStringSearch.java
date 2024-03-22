@@ -33,21 +33,21 @@ public class SelectWithStringSearch extends Recipe {
 		MethodMatcher matcher = new MethodMatcher("com.sap.cds.ql.Select columns(..)");
 		return new JavaIsoVisitor<ExecutionContext>() {
 
-			@Override
-			public MethodInvocation visitMethodInvocation(MethodInvocation method,
-					ExecutionContext p) {
-				MethodInvocation m = super.visitMethodInvocation(method, p);
-				if (matcher.matches(m)) {
-					m = m.withArguments(ListUtils.map(m.getArguments(), a -> {
-						if (a instanceof J.Literal && ((J.Literal) a).getType() == JavaType.Primitive.String) {
-							table.insertRow(p, new SelectColumns.Row((String) ((J.Literal) a).getValue()));
-							return SearchResult.found(a);
-						}
-						return a;
-					}));
-				}
-				return m;
-			}
+			// @Override
+			// public MethodInvocation visitMethodInvocation(MethodInvocation method,
+			// 		ExecutionContext p) {
+			// 	MethodInvocation m = super.visitMethodInvocation(method, p);
+			// 	if (matcher.matches(m)) {
+			// 		m = m.withArguments(ListUtils.map(m.getArguments(), a -> {
+			// 			if (a instanceof J.Literal && ((J.Literal) a).getType() == JavaType.Primitive.String) {
+			// 				table.insertRow(p, new SelectColumns.Row((String) ((J.Literal) a).getValue()));
+			// 				return SearchResult.found(a);
+			// 			}
+			// 			return a;
+			// 		}));
+			// 	}
+			// 	return m;
+			// }
 
 			@Override
 			public Literal visitLiteral(Literal literal, ExecutionContext p) {
