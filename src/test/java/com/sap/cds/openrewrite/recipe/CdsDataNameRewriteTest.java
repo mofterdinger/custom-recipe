@@ -2,8 +2,6 @@ package com.sap.cds.openrewrite.recipe;
 
 import static org.openrewrite.java.Assertions.java;
 
-import com.sap.cds.openrewrite.recipe.table.SelectColumns;
-
 import org.junit.jupiter.api.Test;
 import org.openrewrite.java.JavaParser;
 import org.openrewrite.test.RecipeSpec;
