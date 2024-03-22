@@ -1,18 +1,16 @@
 package com.sap.openrewrite.recipe;
 
+import com.sap.openrewrite.recipe.table.SelectColumns;
+
 import org.openrewrite.ExecutionContext;
 import org.openrewrite.Recipe;
 import org.openrewrite.TreeVisitor;
-import org.openrewrite.internal.ListUtils;
 import org.openrewrite.java.JavaIsoVisitor;
 import org.openrewrite.java.MethodMatcher;
 import org.openrewrite.java.tree.J;
 import org.openrewrite.java.tree.J.Literal;
-import org.openrewrite.java.tree.J.MethodInvocation;
 import org.openrewrite.java.tree.JavaType;
 import org.openrewrite.marker.SearchResult;
-
-import com.sap.openrewrite.recipe.table.SelectColumns;
 
 public class SelectWithStringSearch extends Recipe {
 
