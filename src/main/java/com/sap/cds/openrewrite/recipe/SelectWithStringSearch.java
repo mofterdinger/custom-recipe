@@ -1,6 +1,6 @@
-package com.sap.openrewrite.recipe;
+package com.sap.cds.openrewrite.recipe;
 
-import com.sap.openrewrite.recipe.table.SelectColumns;
+import com.sap.cds.openrewrite.recipe.table.SelectColumns;
 
 import org.openrewrite.ExecutionContext;
 import org.openrewrite.Recipe;

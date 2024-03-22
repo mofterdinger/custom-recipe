@@ -1,4 +1,4 @@
-package com.sap.openrewrite.recipe.table;
+package com.sap.cds.openrewrite.recipe.table;
 
 import org.openrewrite.Column;
 import org.openrewrite.DataTable;

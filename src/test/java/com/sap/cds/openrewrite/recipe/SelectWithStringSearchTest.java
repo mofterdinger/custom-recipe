@@ -1,14 +1,15 @@
-package com.sap.openrewrite.recipe;
+package com.sap.cds.openrewrite.recipe;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.openrewrite.java.Assertions.java;
+
+import com.sap.cds.openrewrite.recipe.SelectWithStringSearch;
+import com.sap.cds.openrewrite.recipe.table.SelectColumns;
 
 import org.junit.jupiter.api.Test;
 import org.openrewrite.java.JavaParser;
 import org.openrewrite.test.RecipeSpec;
 import org.openrewrite.test.RewriteTest;
-
-import com.sap.openrewrite.recipe.table.SelectColumns;
 
 public class SelectWithStringSearchTest implements RewriteTest {
 
