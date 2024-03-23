@@ -21,25 +21,25 @@ class CdsDataNameSearchTest implements RewriteTest {
 		rewriteRun(spec -> spec.dataTable(SelectColumns.Row.class, (rows) -> {
 //			assertThat(rows).containsExactly(new SelectColumns.Row("MyElement"));
 		}), java("""
-					import com.sap.cds.CdsData;
+				import com.sap.cds.CdsData;
 
-					class Test {
+				class Test {
 
-						void test() {
-							CdsData.create().get("MyElement");
-						}
-
+					void test() {
+						CdsData.create().get("MyElement");
 					}
+
+				}
 				""", """
-					import com.sap.cds.CdsData;
+				import com.sap.cds.CdsData;
 
-					class Test {
+				class Test {
 
-						void test() {
-							/*~~>*/CdsData.create().get("MyElement");
-						}
-
+					void test() {
+						/*~~>*/CdsData.create().get("MyElement");
 					}
+
+				}
 				"""));
 	}
 
@@ -48,40 +48,40 @@ class CdsDataNameSearchTest implements RewriteTest {
 		rewriteRun(spec -> spec.dataTable(SelectColumns.Row.class, (rows) -> {
 //			assertThat(rows).containsExactly(new SelectColumns.Row("MyElement"));
 		}), java("""
-					import com.sap.cds.CdsData;
+				import com.sap.cds.CdsData;
 
-					class Test {
+				class Test {
 
-						void test() {
-							CdsData.create().put("MyElement", null);
-						}
-
+					void test() {
+						CdsData.create().put("MyElement", null);
 					}
+
+				}
 				""", """
-					import com.sap.cds.CdsData;
+				import com.sap.cds.CdsData;
 
-					class Test {
+				class Test {
 
-						void test() {
-							/*~~>*/CdsData.create().put("MyElement", null);
-						}
-
+					void test() {
+						/*~~>*/CdsData.create().put("MyElement", null);
 					}
+
+				}
 				"""));
 	}
 
 	@Test
 	void testMapPut() {
 		rewriteRun(java("""
-					import java.util.HashMap;
+				import java.util.HashMap;
 
-					class Test {
+				class Test {
 
-						void test() {
-							new HashMap<String, Object>().put("MyElement", null);
-						}
-
+					void test() {
+						new HashMap<String, Object>().put("MyElement", null);
 					}
+
+				}
 				"""));
 	}
 

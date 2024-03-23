@@ -14,6 +14,12 @@ mod run . --recipe com.sap.cds.openrewrite.recipe.CdsDataNameSearch
 mod run . --recipe com.sap.cds.openrewrite.recipe.CdsDataRewriteRecipes
 ```
 
+With maven:
+
+```bash
+mvn org.openrewrite.maven:rewrite-maven-plugin:run -Drewrite.recipeArtifactCoordinates=com.sap.cds.openrewrite:recipes:1.0.0-SNAPSHOT -Drewrite.activeRecipes=com.sap.cds.openrewrite.recipe.CdsDataRewriteRecipes
+```
+
 Before you publish your recipe module to an artifact repository, you may want to try it out locally.
 To do this on the command line, run:
 ```bash
