@@ -1,3 +1,15 @@
+## Install moderne cli
+
+Download latest version from https://repo1.maven.org/maven2/io/moderne/moderne-cli/
+
+This is an optional step, but allows us to refer to the latest CLI JAR with just mod. In git bash add a function to .bashrc with:
+
+```bash
+mod() {
+  java -jar "/path/to/mod.jar" $@
+}
+```
+
 ## Install recipes
 
 This will align your CLI’s locally available recipe marketplace to the recipes currently installed on app.moderne.io.
