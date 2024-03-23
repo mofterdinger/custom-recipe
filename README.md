@@ -1,16 +1,22 @@
-## Local Publishing for Testing
+## Install recipes
 
-Install recipes
+This will align your CLI’s locally available recipe marketplace to the recipes currently installed on app.moderne.io.
 
 ```bash
 mod config recipes moderne sync
 ```
 
-This will align your CLI’s locally available recipe marketplace to the recipes currently installed on app.moderne.io. After this is complete, you can see how many recipes are now available:
+After this is complete, you can see how many recipes are now available:
 
 ```
 mod config recipes list
 ```
+
+```bash
+mod config recipes moderne install CommonStaticAnalysis
+```
+
+## Local Publishing for Testing
 
 Build and install locally for testing:
 
