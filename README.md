@@ -2,7 +2,7 @@
 
 Download latest version from https://repo1.maven.org/maven2/io/moderne/moderne-cli/
 
-This is an optional step, but allows us to refer to the latest CLI JAR with just mod. In git bash add a function to .bashrc with:
+This is an optional step, but allows us to refer to the latest CLI JAR with just `mod`. In git bash add a function to `.bashrc` with:
 
 ```bash
 mod() {
@@ -12,7 +12,7 @@ mod() {
 
 ## Connect your CLI to https://app.moderne.io
 
-By connecting the CLI to a Moderne tenant (in this case, the public open source Moderne tenant), we can conveniently sync the recipe catalog available locally to what is in that tenant. Retrieve an access token from Moderne:
+By connecting the CLI to a Moderne tenant (in this case, the public open source Moderne tenant), we can conveniently sync the recipe catalog available locally to what is in that tenant.
 
  ```bash
 mod config moderne edit https://app.moderne.io --token <YOUR_TOKEN>
