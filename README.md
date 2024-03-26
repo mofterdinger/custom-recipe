@@ -30,7 +30,7 @@ After this is complete, you can see how many recipes are now available:
 mod config recipes list
 ```
 
-Run a refactoring recipe:
+## Run a refactoring recipe
 
 ```bash
 mod run . --recipe CommonStaticAnalysis
@@ -43,6 +43,14 @@ These recipes will prepare patch files in .moderne folders in each repository, w
 mod git apply . --last-recipe-run
 mod git checkout . java-17-upgrade -b
 mod git commit . -m "Upgrade to Java 17"
+```
+
+## Studying the results of a recipe run
+
+Recipes can produce data tables as a recipe run proceeds. Data tables are columnar data in a schema defined by the recipe.
+
+```bash
+mod study . --last-recipe-run --data-table SourcesFileResults
 ```
 
 ## Local Publishing for Testing
