@@ -30,10 +30,19 @@ After this is complete, you can see how many recipes are now available:
 mod config recipes list
 ```
 
-Run a refactoring recipe
+Run a refactoring recipe:
+
 ```bash
 mod run . --recipe CommonStaticAnalysis
 mod run . --recipe UpgradeToJava17
+```
+
+These recipes will prepare patch files in .moderne folders in each repository, which can then be studied further or applied to the repository contents and committed.
+
+```bash
+mod git apply . --last-recipe-run
+mod git checkout . java-17-upgrade -b
+mod git commit . -m "Upgrade to Java 17"
 ```
 
 ## Local Publishing for Testing
