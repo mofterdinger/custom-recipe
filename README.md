@@ -10,6 +10,14 @@ mod() {
 }
 ```
 
+## Connect your CLI to https://app.moderne.io
+
+By connecting the CLI to a Moderne tenant (in this case, the public open source Moderne tenant), we can conveniently sync the recipe catalog available locally to what is in that tenant. Retrieve an access token from Moderne:
+
+ ```bash
+mod config moderne edit https://app.moderne.io --token <YOUR_TOKEN>
+```
+
 ## Install recipes
 
 This will align your CLI’s locally available recipe marketplace to the recipes currently installed on app.moderne.io.
