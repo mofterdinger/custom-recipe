@@ -18,14 +18,22 @@ This will align your CLI’s locally available recipe marketplace to the recipes
 mod config recipes moderne sync
 ```
 
+Or install a single recipt:
+
+```bash
+mod config recipes moderne install CommonStaticAnalysis
+```
+
 After this is complete, you can see how many recipes are now available:
 
 ```
 mod config recipes list
 ```
 
+Run a refactoring recipe
 ```bash
-mod config recipes moderne install CommonStaticAnalysis
+mod run . --recipe CommonStaticAnalysis
+mod run . --recipe UpgradeToJava17
 ```
 
 ## Local Publishing for Testing
