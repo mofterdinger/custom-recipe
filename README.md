@@ -6,7 +6,7 @@ This is an optional step, but allows us to refer to the latest CLI JAR with just
 
 ```bash
 mod() {
-  java -jar "/path/to/mod.jar $@"
+  java -jar "/path/to/mod.jar" "$@"
 }
 ```
 
