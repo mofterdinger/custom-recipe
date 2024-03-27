@@ -6,7 +6,7 @@ This is an optional step, but allows us to refer to the latest CLI JAR with just
 
 ```bash
 mod() {
-  java -jar "/path/to/mod.jar" $@
+  java -jar "/path/to/mod.jar $@"
 }
 ```
 
@@ -36,6 +36,12 @@ After this is complete, you can see how many recipes are now available:
 
 ```
 mod config recipes list
+```
+
+## Build LST
+
+```bash
+mod build .
 ```
 
 ## Run a refactoring recipe
