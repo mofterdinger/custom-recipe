@@ -49,6 +49,7 @@ mod build .
 ```bash
 mod run . --recipe CommonStaticAnalysis
 mod run . --recipe UpgradeToJava17
+mod run . --recipe InstanceOfPatternMatch
 ```
 
 These recipes will prepare patch files in .moderne folders in each repository, which can then be studied further or applied to the repository contents and committed.
